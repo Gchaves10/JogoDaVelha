@@ -1,0 +1,2 @@
+﻿  JOGO1.cpp
+C:\Users\Guilh\source\repos\JOGO1\JOGO1.cpp(4,10): fatal error C1083: Não é possível abrir arquivo incluir: 'wx/wxprec.h': No such file or directory
