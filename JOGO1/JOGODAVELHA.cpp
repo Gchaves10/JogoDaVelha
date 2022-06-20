@@ -1,4 +1,4 @@
-// wxWidgets "Hello World" Program
+// wxWidgets 
 
 // For compilers that support precompilation, includes "wx/wx.h".
 #include <wx/wxprec.h>
@@ -10,7 +10,7 @@
 
 int Tabuleiro[3][3];
 
-int jogador; //Qual é o jogador da vez?
+int jogador; //Qual Ã© o jogador da vez?
 int contarRodadas;
 int vitoria;//Quem ganhou
 
@@ -85,7 +85,7 @@ int checkTabuleiro()
     else if (p2 == 3) {
         return 2;
     }
-    //Diagonal Secundária
+    //Diagonal SecundÃ¡ria
 
     p1 = 0;
     p2 = 0;
@@ -133,7 +133,7 @@ protected:
 
     char m_msgStatusBar[200];
 
-private://métodos
+private://mÃ©todos
 
     //Barra do Menu 
     void OnNewGame(wxCommandEvent& event);
@@ -145,7 +145,7 @@ private://métodos
     void EndGame();
     
 
-    //Botões do jogo Clicados
+    //BotÃµes do jogo Clicados
     void OnBtnUpLeftClick(wxCommandEvent& event);
     void OnBtnUpMidClick(wxCommandEvent& event);
     void OnBtnUpRightClick(wxCommandEvent& event);
@@ -171,7 +171,7 @@ private://métodos
     void OnBtnLowLeftEnterWindow(wxCommandEvent& event);
     void OnBtnLowMidEnterWindow(wxCommandEvent& event);
     void OnBtnLowRightEnterWindow(wxCommandEvent& event);
-    /* Saída */
+    /* SaÃ­da */
     void OnBtnUpLeftLeaveWindow(wxCommandEvent& event);
     void OnBtnUpMidLeaveWindow(wxCommandEvent& event);
     void OnBtnUpRightLeaveWindow(wxCommandEvent& event);
@@ -208,7 +208,7 @@ void MainFrame::EnableGrid()
         m_btnLowMid->Enable();
         m_btnLowRight->Enable();
 
-        //Texto dos botões
+        //Texto dos botÃµes
         m_btnUpLeft->SetLabelText("");
         m_btnUpMid->SetLabelText("");
         m_btnUpRight->SetLabelText("");
@@ -235,7 +235,7 @@ void MainFrame::DisableGrid()
     m_btnLowMid->Disable();
     m_btnLowRight->Disable();
 
-    //Texto dos botões
+    //Texto dos botÃµes
     m_btnUpLeft->SetLabelText("");
     m_btnUpMid->SetLabelText("");
     m_btnUpRight->SetLabelText("");
@@ -288,12 +288,12 @@ MainFrame::MainFrame()
 {
     wxMenu* menuGame = new wxMenu;
     menuGame->Append(ID_NewGame, "Novo Jogo...\tCtrl-N",
-        "Começar um novo jogo..");
+        "ComeÃ§ar um novo jogo..");
     menuGame->AppendSeparator();
     menuGame->Append(wxID_EXIT, "Sair","Fechar o jogo..");
 
     wxMenu* menuHelp = new wxMenu;
-    menuHelp->Append(wxID_ABOUT,"Sobre","Informações do jogo..");
+    menuHelp->Append(wxID_ABOUT,"Sobre","InformaÃ§Ãµes do jogo..");
 
     wxMenuBar* menuBar = new wxMenuBar;
     menuBar->Append(menuGame, "&Jogo"); //"append 'pendura' os menus na MenuBar
@@ -304,7 +304,7 @@ MainFrame::MainFrame()
     wxGridSizer* gBoard = new wxGridSizer(3, 3, 0, 0);
     gBoard->SetMinSize(500, 500);
 
-    //Botões
+    //BotÃµes
 
     /* Up */
     /* UpLeft */
@@ -355,13 +355,13 @@ MainFrame::MainFrame()
 
     CreateStatusBar();
     DisableGrid();
-    SetStatusText("Selecione 'Novo Jogo' para começar uma partida!");
+    SetStatusText("Selecione 'Novo Jogo' para comeÃ§ar uma partida!");
 
     Bind(wxEVT_MENU, &MainFrame::OnNewGame, this, ID_NewGame);
     Bind(wxEVT_MENU, &MainFrame::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &MainFrame::OnExit, this, wxID_EXIT);
 
-    //Eventos dos botões do jogo
+    //Eventos dos botÃµes do jogo
     /* Up */
     m_btnUpLeft->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MainFrame::OnBtnUpLeftClick), NULL, this);
     m_btnUpMid->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MainFrame::OnBtnUpMidClick), NULL, this);
@@ -390,7 +390,7 @@ MainFrame::MainFrame()
     m_btnLowMid->Connect(wxEVT_ENTER_WINDOW, wxCommandEventHandler(MainFrame::OnBtnLowMidEnterWindow), NULL, this);
     m_btnLowRight->Connect(wxEVT_ENTER_WINDOW, wxCommandEventHandler(MainFrame::OnBtnLowRightEnterWindow), NULL, this);
 
-    /* Saída */
+    /* SaÃ­da */
     m_btnUpLeft->Connect(wxEVT_ENTER_WINDOW, wxCommandEventHandler(MainFrame::OnBtnUpLeftLeaveWindow), NULL, this);
     m_btnUpMid->Connect(wxEVT_ENTER_WINDOW, wxCommandEventHandler(MainFrame::OnBtnUpMidLeaveWindow), NULL, this);
     m_btnUpRight->Connect(wxEVT_ENTER_WINDOW, wxCommandEventHandler(MainFrame::OnBtnUpRightLeaveWindow), NULL, this);
@@ -403,7 +403,7 @@ MainFrame::MainFrame()
     m_btnLowMid->Connect(wxEVT_ENTER_WINDOW, wxCommandEventHandler(MainFrame::OnBtnLowMidLeaveWindow), NULL, this);
     m_btnLowRight->Connect(wxEVT_ENTER_WINDOW, wxCommandEventHandler(MainFrame::OnBtnLowRightLeaveWindow), NULL, this);
 }
-//Lógica dos métodos
+//LÃ³gica dos mÃ©todos
 void MainFrame::OnExit(wxCommandEvent& event)
 {
     Close(true);
@@ -411,7 +411,7 @@ void MainFrame::OnExit(wxCommandEvent& event)
 
 void MainFrame::OnAbout(wxCommandEvent& event)
 {
-    wxMessageBox("\n\t As regras do Jogo são bem simples.\n Dois jogadores escolhem dois símbolos com que querem jogar.\n Normalmente, usa-se X e O. \n O jogo é realizado em um tabuleiro 3x3 e os espaços serão preenchidos com os símbolos escolhidos. \n O objetivo do jogo é preencher as diagonais ou as horizontais ou as verticais com os símbolos e impedir seu adversário de fazer isso primeiro que você.",
+    wxMessageBox("\n\t As regras do Jogo sÃ£o bem simples.\n Dois jogadores escolhem dois sÃ­mbolos com que querem jogar.\n Normalmente, usa-se X e O. \n O jogo Ã© realizado em um tabuleiro 3x3 e os espaÃ§os serÃ£o preenchidos com os sÃ­mbolos escolhidos. \n O objetivo do jogo Ã© preencher as diagonais ou as horizontais ou as verticais com os sÃ­mbolos e impedir seu adversÃ¡rio de fazer isso primeiro que vocÃª.",
         "Sobre o Jogo da Velha", wxOK | wxICON_INFORMATION);
 }
 
@@ -422,7 +422,7 @@ void MainFrame::OnNewGame(wxCommandEvent& event)
     SetStatusText("Turno do jogador 1 (X)");
 }
 
-//Botões do tabuleiro "On click"
+//BotÃµes do tabuleiro "On click"
 
 /*Up*/
 void MainFrame::OnBtnUpLeftClick(wxCommandEvent& event) 
@@ -778,7 +778,7 @@ void MainFrame::OnBtnLowRightEnterWindow(wxCommandEvent& event)
     }
     SetStatusText(m_msgStatusBar);
 }
-/* Saída */
+/* SaÃ­da */
 void MainFrame::OnBtnUpLeftLeaveWindow(wxCommandEvent& event)
 {
     if (m_btnUpLeft->IsEnabled()) {
